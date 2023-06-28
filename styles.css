@@ -1,3 +1,96 @@
-h1 {
-    color: red;
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-weight: normal;
+}
+
+:root {
+    --orange: rgba(187, 132, 84, 1);
+    --header-font: 'Kanit', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: rgb(38, 36, 36);
+    font-family: var(--body-font);
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    color: white;
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(82, 74, 71, .75);
+    color: white;
+}
+
+.calculator-grid > button:hover {
+    background-color: rgba(82, 74, 71, .9);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(212, 226, 229, .9);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: .6rem;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-family: var(--header-font)
+
+}
+
+.output .previous-operand {
+    color: rgba(45, 45, 45, 0.75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: black;
+    font-size: 2.5rem;
+}
+
+.top-row {
+    grid-column: 1 / -1;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: .6rem;
+    font-weight: 600;
+    font-family: var(--header-font);
+}
+
+.solar {
+    display: flex;
+}
+
+.solar > div {
+    background: #2E2722;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    flex: 1;
+    border-right: 1px solid rgb(255, 255, 255, 0.2);
+    height: 40px;
+    width: 40px;
+}
+
+button[data-delete], button[data-all-clear] {
+    background-color: var(--orange);
 }
