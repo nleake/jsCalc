@@ -94,3 +94,7 @@ body {
 button[data-delete], button[data-all-clear] {
     background-color: var(--orange);
 }
+
+button[operation] {
+    background-color: rgba(98, 85, 81, 0.9);
+}

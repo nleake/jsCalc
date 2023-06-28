@@ -6,9 +6,9 @@ class Calculator {
   }
 
   clear() {
-    this.currentOperand = ''
-    this.previousOperand = ''
-    this.operation = undefined
+    this.currentOperand = '';
+    this.previousOperand = '';
+    this.operation = undefined;
   }
 
   delete() {
@@ -17,40 +17,40 @@ class Calculator {
 
   appendNumber(number) {
     if (number === '.' && this.currentOperand.includes('.')) return;
-    this.currentOperand = this.currentOperand.toString() + number.toString()
+    this.currentOperand = this.currentOperand.toString() + number.toString();
   }
 
   chooseOperation(operation) {
-    if (this.currentOperand === '') return
+    if (this.currentOperand === '') return;
     if (this.previousOperand !== '') {
-      this.compute()
+      this.compute();
     }
-    this.operation = operation
-    this.previousOperand = this.currentOperand
-    this.currentOperand = ''
+    this.operation = operation;
+    this.previousOperand = this.currentOperand;
+    this.currentOperand = '';
 
   }
 
   compute() {
-    let computation
-    const prev = parseFloat(this.previousOperand)
-    const current = parseFloat(this.currentOperand)
-    if(isNaN(prev) || isNaN(current)) return
+    let computation;
+    const prev = parseFloat(this.previousOperand);
+    const current = parseFloat(this.currentOperand);
+    if(isNaN(prev) || isNaN(current)) return;
     switch (this.operation) {
       case '+':
-        computation = prev + current
-        break
+        computation = prev + current;
+        break;
       case '-':
-          computation = prev - current
-          break
+          computation = prev - current;
+          break;
       case '*':
-        computation = prev * current
-        break
+        computation = prev * current;
+        break;
       case '÷':
-        computation = prev / current
-        break
+        computation = prev / current;
+        break;
       default: 
-        return    
+        return;    
     }
     this.currentOperand = computation
     this.operation = undefined
@@ -75,33 +75,33 @@ const previousOperandTextElement = document.querySelector('[data-previous-operan
 const currentOperandTextElement = document.querySelector('[data-current-operand]');
 
 
-const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
 
 numberButtons.forEach(button => {
   button.addEventListener('click', () => {
-    calculator.appendNumber(button.innerText)
-    calculator.updateDisplay()
+    calculator.appendNumber(button.innerText);
+    calculator.updateDisplay();
   })
 })
 
 operationButtons.forEach(button => {
   button.addEventListener('click', () => {
-    calculator.chooseOperation(button.innerText)
-    calculator.updateDisplay()
+    calculator.chooseOperation(button.innerText);
+    calculator.updateDisplay();
   })
 })
 
 equalsButton.addEventListener('click', button => {
-  calculator.compute()
+  calculator.compute();
   calculator.updateDisplay();
 })
 
 allClearButton.addEventListener('click', button => {
-  calculator.clear()
+  calculator.clear();
   calculator.updateDisplay();
 })
 
 deleteButton.addEventListener('click', button => {
-  calculator.delete()
+  calculator.delete();
   calculator.updateDisplay();
 })
