@@ -96,5 +96,5 @@ button[data-delete], button[data-all-clear] {
 }
 
 button[operation] {
-    background-color: rgba(98, 85, 81, 0.9);
+    background-color: rgba(75, 149, 105, 0.9);
 }
