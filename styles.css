@@ -26,6 +26,7 @@ time, mark, audio, video {
 
 :root {
     --orange: rgba(187, 132, 84, 1);
+    --green: rgba(157, 171, 110, 0.9);
     --header-font: 'Kanit', sans-serif;
     --body-font: 'Roboto', sans-serif;
 }
@@ -36,6 +37,7 @@ body {
     background: rgb(38, 36, 36);
     font-family: var(--body-font);
 }
+
 
 .calculator-grid {
     display: grid;
@@ -57,7 +59,7 @@ body {
 }
 
 .calculator-grid > button:hover {
-    background-color: rgba(82, 74, 71, .9);
+    filter: contrast(140%);
 }
 
 .span-two {
@@ -117,5 +119,5 @@ button[data-delete], button[data-all-clear] {
 }
 
 button[data-operation] {
-    background-color: rgba(157, 171, 110, 0.9);
+    background-color: var(--green);
 }
